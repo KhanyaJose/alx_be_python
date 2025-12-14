@@ -14,13 +14,10 @@ class Book:
         """
         self.title = title
         self.author = author
-
-    def get_details(self):
+    
+    def __str__(self):
         """
-        Returns a string with book details.
-        
-        Returns:
-            str: Book details in format "Book: {title} by {author}"
+        String representation of the Book.
         """
         return f"Book: {self.title} by {self.author}"
 
@@ -42,13 +39,10 @@ class EBook(Book):
         # Call the parent class constructor
         super().__init__(title, author)
         self.file_size = file_size
-
-    def get_details(self):
+    
+    def __str__(self):
         """
-        Returns a string with ebook details.
-        
-        Returns:
-            str: EBook details in format "EBook: {title} by {author}, File Size: {file_size}KB"
+        String representation of the EBook.
         """
         return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
 
@@ -70,13 +64,10 @@ class PrintBook(Book):
         # Call the parent class constructor
         super().__init__(title, author)
         self.page_count = page_count
-
-    def get_details(self):
+    
+    def __str__(self):
         """
-        Returns a string with print book details.
-        
-        Returns:
-            str: PrintBook details in format "PrintBook: {title} by {author}, Page Count: {page_count}"
+        String representation of the PrintBook.
         """
         return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
@@ -91,7 +82,7 @@ class Library:
         Initialize a Library instance with an empty list of books.
         """
         self.books = []
-
+    
     def add_book(self, book):
         """
         Adds a book to the library collection.
@@ -100,10 +91,10 @@ class Library:
             book: An instance of Book, EBook, or PrintBook
         """
         self.books.append(book)
-
+    
     def list_books(self):
         """
         Prints details of each book in the library.
         """
         for book in self.books:
-            print(book.get_details())
+            print(book)
